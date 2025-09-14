@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hamburger.addEventListener('click', () => {
         nav.classList.toggle('active');
+        hamburger.classList.toggle('active'); 
     });
 
     // Rolagem Suave
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 if (nav.classList.contains('active')) {
                     nav.classList.remove('active');
+                    hamburger.classList.remove('active');
                 }
             }
         });
@@ -66,16 +68,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
-    const observerStats = new IntersectionObserver(handleIntersectionStats, { threshold: 0.5 });
-    observerStats.observe(statsSection);
+    
+    // Apenas observa a seção de stats se ela existir na página
+    if (statsSection) {
+        const observerStats = new IntersectionObserver(handleIntersectionStats, { threshold: 0.5 });
+        observerStats.observe(statsSection);
+    }
 
     // Animação de fade-in das seções
     const faders = document.querySelectorAll('.fade-in');
+    
+    // ALTERAÇÃO PRINCIPAL AQUI: Diminuímos o threshold para 0.15
     const appearOptions = {
-        threshold: 0.5,
+        threshold: 0.15, // Antes era 0.5, agora ativa a animação muito antes
         rootMargin: "0px 0px -50px 0px"
     };
+
     const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {

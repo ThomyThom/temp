@@ -65,14 +65,55 @@ body {
     text-shadow: 0 0 5px #b3c2e4;
 }
 
+/* ESTILOS DA ANIMAÇÃO DO HAMBURGER */
 .hamburger {
-    display: none;
+    display: none; /* Será ativado no @media query */
     background: none;
     border: none;
-    color: var(--white);
-    font-size: 1.5rem;
     cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    z-index: 1010; /* Para ficar acima do menu */
 }
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-line:nth-child(1) {
+    top: 0;
+}
+
+.hamburger-line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger-line:nth-child(3) {
+    bottom: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
 
 /* Seções */
 section {
@@ -225,9 +266,8 @@ section {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* ALTERAÇÃO PRINCIPAL AQUI */
 .service-icon {
-    font-size: 80px !important; /* Usamos !important para garantir a prioridade */
+    font-size: 80px !important; 
     color: var(--primary-color);
     margin-bottom: 1rem;
     display: block;
