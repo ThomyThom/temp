@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // ALTERAÇÃO DEFINITIVA AQUI:
     const appearOptions = {
-        threshold: 0.1, // Gatilho em 10% da visibilidade do elemento
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0.1, // Gatilho em 10% de visibilidade
+        rootMargin: "0px" // Removemos a margem negativa que causava o problema
     };
 
     const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
