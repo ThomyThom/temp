@@ -416,4 +416,12 @@ section {
         flex-direction: column;
         text-align: center;
     }
+
+    /* ALTERAÇÃO PRINCIPAL AQUI */
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px; /* Mais próximo da parte inferior */
+        left: 20px;   /* Mais próximo da lateral */
+    }
 }
