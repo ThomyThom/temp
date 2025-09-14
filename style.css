@@ -1,10 +1,20 @@
 /* Configurações Globais */
+:root {
+    --primary-color: #0a1f44;
+    --secondary-color: #1e3a6c;
+    --light-gray: #f4f4f4;
+    --dark-gray: #333;
+    --white: #fff;
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #128C7E;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
 }
 
 .container {
@@ -15,8 +25,8 @@ body {
 
 /* Header e Navegação */
 .header {
-    background: #0a1f44;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -43,15 +53,25 @@ body {
 }
 
 .nav li a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .nav li a:hover {
     color: #b3c2e4;
+    text-shadow: 0 0 5px #b3c2e4;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* Seções */
@@ -59,13 +79,13 @@ section {
     padding: 80px 0;
 }
 
-/* Seção Hero - Fundo alterado para uma imagem */
+/* Seção Hero */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image_6d4551.png') no-repeat center center/cover;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     padding: 150px 0;
-    margin-top: 60px; /* Para não ficar atrás do header fixo */
+    margin-top: 60px;
 }
 
 .hero h2 {
@@ -79,8 +99,8 @@ section {
 
 .btn-cta, .btn-send {
     display: inline-block;
-    background: #0a1f44;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white);
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 5px;
@@ -91,11 +111,11 @@ section {
 }
 
 .btn-cta:hover, .btn-send:hover {
-    background: #1e3a6c;
+    background: var(--secondary-color);
 }
 
 .about, .services, .contact {
-    background: #fff;
+    background: var(--white);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-bottom: 20px;
 }
@@ -104,28 +124,28 @@ section {
     padding: 40px;
 }
 
-/* ESTILO DA SEÇÃO SOBRE MIM (ABOUT) */
+/* Seção Sobre Mim */
 .about-flex-container {
     display: flex;
-    align-items: center; /* Alinha itens verticalmente ao centro */
-    gap: 40px; /* Espaçamento entre o texto e a imagem */
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .about-content {
-    flex: 2; /* Ocupa mais espaço que a imagem */
-    min-width: 300px; /* Garante que o conteúdo não fique muito estreito */
+    flex: 2;
+    min-width: 300px;
 }
 
 .about-content h3 {
     font-size: 2.5rem;
-    color: #0a1f44;
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .about-content h4 {
     font-size: 1.5rem;
-    color: #333;
+    color: var(--dark-gray);
     margin-top: 0;
     margin-bottom: 1.5rem;
 }
@@ -135,26 +155,25 @@ section {
 }
 
 .about-image-wrapper {
-    flex: 1; /* Ocupa o espaço restante */
-    display: flex; /* Para centralizar a imagem dentro do wrapper */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    min-width: 250px; /* Garante um tamanho mínimo para a imagem */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
 }
 
 .about-image-profile {
-    width: 100%; /* Garante que a imagem ocupe o espaço disponível */
-    max-width: 350px; /* Limita o tamanho máximo da imagem */
+    width: 100%;
+    max-width: 350px;
     height: auto;
-    border-radius: 50%; /* Torna a imagem circular */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
-    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
 
-
-/* Nova seção de estatísticas */
+/* Seção de Estatísticas */
 .stats {
-    background: #f4f4f4;
+    background: var(--light-gray);
     text-align: center;
     padding: 40px 0;
 }
@@ -174,7 +193,7 @@ section {
 .stat-number {
     font-size: 3rem;
     font-weight: bold;
-    color: #0a1f44;
+    color: var(--primary-color);
     display: block;
 }
 
@@ -189,7 +208,7 @@ section {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2rem;
-    color: #0a1f44;
+    color: var(--primary-color);
 }
 
 .service-grid {
@@ -206,17 +225,17 @@ section {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+/* ALTERAÇÃO PRINCIPAL AQUI */
 .service-icon {
-    font-size: 100px;
-    color: #0a1f44;
+    font-size: 80px !important; /* Usamos !important para garantir a prioridade */
+    color: var(--primary-color);
     margin-bottom: 1rem;
     display: block;
-    width: 100px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Seção de Contato - Estilo para o botão "Falar no WhatsApp" na seção de contato */
+/* Seção de Contato */
 .contact-content {
     display: flex;
     flex-direction: column;
@@ -228,8 +247,8 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #25D366;
-    color: #fff;
+    background: var(--whatsapp-green);
+    color: var(--white);
     padding: 1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -243,7 +262,7 @@ section {
 }
 
 .btn-whatsapp-section:hover {
-    background: #128C7E;
+    background: var(--whatsapp-hover);
     transform: translateY(-3px);
 }
 
@@ -254,8 +273,8 @@ section {
 
 /* Footer */
 .footer {
-    background: #0a1f44;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white);
     text-align: center;
     padding: 2rem 0;
 }
@@ -275,7 +294,7 @@ section {
     margin: 0.5rem 0;
 }
 
-/* Animação com CSS */
+/* Animações */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -287,15 +306,15 @@ section {
     transform: translateY(0);
 }
 
-/* BOTÃO FLUTUANTE DO WHATSAPP */
+/* Botão Flutuante do WhatsApp */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
     bottom: 40px;
     left: 40px;
-    background-color: #25D366;
-    color: #FFF;
+    background-color: var(--whatsapp-green);
+    color: var(--white);
     border-radius: 50%;
     text-align: center;
     font-size: 30px;
@@ -305,100 +324,56 @@ section {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s, transform 0.3s;
-    border-top: 5px solid #fff;
     cursor: pointer;
     border: none;
 }
 
-.whatsapp-float i {
-    color: #fff;
-    font-size: 28px;
-    position: relative;
-}
-
-/* Simulação da linha de baixo do ícone do WhatsApp */
-.whatsapp-float i::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 1px;
-}
-
 .whatsapp-float:hover {
-    background-color: #128C7E;
+    background-color: var(--whatsapp-hover);
     transform: scale(1.05);
 }
 
-/* Mobile-Friendly (Responsividade) */
+/* Responsividade */
 @media (max-width: 768px) {
-    .header .container {
+    .nav {
+        display: none;
         flex-direction: column;
-        text-align: center;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 1rem 0;
+    }
+
+    .nav.active {
+        display: flex;
     }
 
     .nav ul {
-        margin-top: 1rem;
+        flex-direction: column;
+        width: 100%;
     }
 
+    .nav li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+    
     .hero {
-        padding: 100px 0;
+        padding: 100px 20px;
     }
 
     .hero h2 {
         font-size: 2rem;
     }
-
-    /* ABOUT SECTION RESPONSIVE */
-    .about-flex-container {
-        flex-direction: column; /* Empilha os itens verticalmente */
-        text-align: center; /* Centraliza o texto */
-    }
-
-    .about-content {
-        padding-right: 0;
-        margin-bottom: 20px; /* Adiciona espaço entre o texto e a imagem */
-    }
-
-    .about-image-profile {
-        max-width: 250px; /* Reduz o tamanho da imagem no mobile */
-    }
     
-    .stats .container {
+    .about-flex-container {
         flex-direction: column;
-        gap: 40px;
-    }
-
-    .whatsapp-float {
-        bottom: 20px;
-        left: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-        border-top: 4px solid #fff;
-    }
-
-    .whatsapp-float i {
-        font-size: 22px;
-    }
-
-    .whatsapp-float i::after {
-        bottom: -6px;
-        width: 60%;
-        height: 1.5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h2 {
-        font-size: 1.5rem;
-    }
-
-    .nav li a {
-        padding: 0.5rem 0.8rem;
+        text-align: center;
     }
 }
