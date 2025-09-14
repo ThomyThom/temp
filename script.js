@@ -29,48 +29,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animação de contagem dos números
     const statsSection = document.querySelector('.stats');
-    const counters = document.querySelectorAll('.stat-number');
-    let hasAnimated = false;
-
-    const animateCounter = (counter, target) => {
-        const duration = 2000;
-        const start = performance.now();
-        const startValue = parseInt(counter.textContent) || 0;
-        
-        const updateCount = (timestamp) => {
-            const progress = timestamp - start;
-            const percentage = Math.min(progress / duration, 1);
-            const value = Math.floor(startValue + percentage * (target - startValue));
-            
-            if (value >= target) {
-                if (target === 100) {
-                    counter.textContent = '100%';
-                } else {
-                    counter.textContent = `${target}+`;
-                }
-            } else {
-                counter.textContent = value;
-                requestAnimationFrame(updateCount);
-            }
-        };
-        requestAnimationFrame(updateCount);
-    };
-
-    const handleIntersectionStats = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    animateCounter(counter, target);
-                });
-                hasAnimated = true;
-                observer.unobserve(statsSection);
-            }
-        });
-    };
-    
-    // Apenas observa a seção de stats se ela existir na página
     if (statsSection) {
+        const counters = document.querySelectorAll('.stat-number');
+        let hasAnimated = false;
+
+        const animateCounter = (counter, target) => {
+            const duration = 2000;
+            const start = performance.now();
+            const startValue = parseInt(counter.textContent) || 0;
+            
+            const updateCount = (timestamp) => {
+                const progress = timestamp - start;
+                const percentage = Math.min(progress / duration, 1);
+                const value = Math.floor(startValue + percentage * (target - startValue));
+                
+                if (value >= target) {
+                    if (target === 100) {
+                        counter.textContent = '100%';
+                    } else {
+                        counter.textContent = `${target}+`;
+                    }
+                } else {
+                    counter.textContent = value;
+                    requestAnimationFrame(updateCount);
+                }
+            };
+            requestAnimationFrame(updateCount);
+        };
+
+        const handleIntersectionStats = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target);
+                    });
+                    hasAnimated = true;
+                    observer.unobserve(statsSection);
+                }
+            });
+        };
+        
         const observerStats = new IntersectionObserver(handleIntersectionStats, { threshold: 0.5 });
         observerStats.observe(statsSection);
     }
@@ -78,9 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animação de fade-in das seções
     const faders = document.querySelectorAll('.fade-in');
     
-    // ALTERAÇÃO PRINCIPAL AQUI: Diminuímos o threshold para 0.15
+    // ALTERAÇÃO DEFINITIVA AQUI:
     const appearOptions = {
-        threshold: 0.15, // Antes era 0.5, agora ativa a animação muito antes
+        threshold: 0.1, // Gatilho em 10% da visibilidade do elemento
         rootMargin: "0px 0px -50px 0px"
     };
 
