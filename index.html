@@ -9,9 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
 </head>
 <body>
 
@@ -37,7 +35,7 @@
     <main>
         <section id="inicio" class="hero">
             <div class="container">
-                <h2>Seu parceiro em questões jurídicas</h2>
+                <h2 id="hero-title"></h2>
                 <p>Experiência, dedicação e ética na defesa dos seus direitos.</p>
                 <a href="#contato" class="btn-cta">Agende uma Consulta</a>
             </div>
@@ -80,24 +78,88 @@
                 <h3>Áreas de Atuação</h3>
                 <div class="service-grid">
                     <div class="service-item">
-                        <span class="material-symbols-outlined service-icon">diversity_2</span>
-                        <h4>Direito Familiar</h4>
-                        <p>Assessoria em divórcio, guarda, pensão alimentícia e sucessões.</p>
+                        <div class="service-item-inner">
+                            <div class="service-item-front">
+                                <span class="material-symbols-outlined service-icon">diversity_2</span>
+                                <h4>Direito de Família e Sucessões</h4>
+                                <div class="interaction-hint">
+                                    <i class="fas fa-hand-pointer"></i>
+                                    <span>Clique para ver</span>
+                                </div>
+                            </div>
+                            <div class="service-item-back">
+                                <h5>Serviços Específicos</h5>
+                                <ul>
+                                    <li>Inventários e Arrolamentos</li>
+                                    <li>Testamentos</li>
+                                    <li>Investigação de Paternidade</li>
+                                    <li>Divórcio, Guarda e Pensão</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="service-item">
-                        <span class="material-symbols-outlined service-icon">savings</span>
-                        <h4>Direito Previdenciário</h4>
-                        <p>Processos e recursos para aposentadoria, auxílios e benefícios sociais.</p>
+                        <div class="service-item-inner">
+                            <div class="service-item-front">
+                                <span class="material-symbols-outlined service-icon">savings</span>
+                                <h4>Direito Previdenciário</h4>
+                                <div class="interaction-hint">
+                                    <i class="fas fa-hand-pointer"></i>
+                                    <span>Clique para ver</span>
+                                </div>
+                            </div>
+                            <div class="service-item-back">
+                                <h5>Serviços Específicos</h5>
+                                <ul>
+                                    <li>Aposentadorias</li>
+                                    <li>Auxílios e Benefícios</li>
+                                    <li>Recursos Administrativos</li>
+                                    <li>Planejamento Previdenciário</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="service-item">
-                        <span class="material-symbols-outlined service-icon">account_balance_wallet</span>
-                        <h4>Direito Tributário</h4>
-                        <p>Consultoria e defesa em questões fiscais, impostos e obrigações tributárias.</p>
+                        <div class="service-item-inner">
+                            <div class="service-item-front">
+                                <span class="material-symbols-outlined service-icon">account_balance_wallet</span>
+                                <h4>Direito Tributário</h4>
+                                <div class="interaction-hint">
+                                    <i class="fas fa-hand-pointer"></i>
+                                    <span>Clique para ver</span>
+                                </div>
+                            </div>
+                            <div class="service-item-back">
+                                <h5>Serviços Específicos</h5>
+                                <ul>
+                                    <li>Repetição de Indébito</li>
+                                    <li>Ação Declaratória</li>
+                                    <li>Mandado de Segurança</li>
+                                    <li>Anulatória de Lançamento</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="service-item">
-                        <span class="material-symbols-outlined service-icon">apartment</span>
-                        <h4>Direito Imobiliário</h4>
-                        <p>Assessoria em compra e venda de imóveis, contratos, locação e usucapião.</p>
+                        <div class="service-item-inner">
+                             <div class="service-item-front">
+                                <span class="material-symbols-outlined service-icon">apartment</span>
+                                <h4>Direito Imobiliário</h4>
+                                <div class="interaction-hint">
+                                    <i class="fas fa-hand-pointer"></i>
+                                    <span>Clique para ver</span>
+                                </div>
+                            </div>
+                            <div class="service-item-back">
+                                <h5>Serviços Específicos</h5>
+                                <ul>
+                                    <li>Usucapião</li>
+                                    <li>Despejos</li>
+                                    <li>Reintegração de Posse</li>
+                                    <li>Locações e Arrendamentos</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,5 +194,4 @@
     
     <script src="script.js"></script>
 </body>
-
 </html>

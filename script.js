@@ -44,11 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const value = Math.floor(startValue + percentage * (target - startValue));
                 
                 if (value >= target) {
-                    if (target === 100) {
-                        counter.textContent = '100%';
-                    } else {
-                        counter.textContent = `${target}+`;
-                    }
+                    counter.textContent = (target === 100) ? '100%' : `${target}+`;
                 } else {
                     counter.textContent = value;
                     requestAnimationFrame(updateCount);
@@ -76,27 +72,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animação de fade-in das seções
     const faders = document.querySelectorAll('.fade-in');
-    
-    // ALTERAÇÃO DEFINITIVA AQUI:
-    const appearOptions = {
-        threshold: 0.1, // Gatilho em 10% de visibilidade
-        rootMargin: "0px" // Removemos a margem negativa que causava o problema
-    };
+    const appearOptions = { threshold: 0.1, rootMargin: "0px" };
 
     const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
                 appearOnScroll.unobserve(entry.target);
             }
         });
     }, appearOptions);
 
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Efeito Máquina de Escrever
+    function typeWriter() {
+        const title = document.getElementById('hero-title');
+        if (title) {
+            const text = "Seu parceiro em questões jurídicas";
+            let i = 0;
+            title.innerHTML = '';
+            
+            function typing() {
+                if (i < text.length) {
+                    title.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, 100);
+                }
+            }
+            typing();
+        }
+    }
+    typeWriter();
 
     // Função para abrir o WhatsApp
     window.abrirWhatsApp = function() {
