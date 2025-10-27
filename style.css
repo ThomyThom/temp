@@ -1,0 +1,235 @@
+/* Configurações Globais */
+:root {
+    --primary-color: #0a1f44;
+    --secondary-color: #1e3a6c;
+    --light-gray: #f4f4f4;
+    --dark-gray: #333;
+    --white: #fff;
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #128C7E;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header e Navegação */
+.header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav li a:hover {
+    color: #b3c2e4;
+    text-shadow: 0 0 5px #b3c2e4;
+}
+
+/* Estilos do Hamburger */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    z-index: 1010; 
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-line:nth-child(1) { top: 0; }
+.hamburger-line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.hamburger-line:nth-child(3) { bottom: 0; }
+.hamburger.active .hamburger-line:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+.hamburger.active .hamburger-line:nth-child(2) { opacity: 0; }
+.hamburger.active .hamburger-line:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+
+
+/* Seções */
+section {
+    padding: 80px 0;
+}
+
+/* Seção Hero e Efeito Máquina de Escrever */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image_6d4551.png') no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 150px 0;
+    margin-top: 60px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+#hero-title::after {
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.btn-cta {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    background: var(--secondary-color);
+}
+
+.about, .contact {
+    background: var(--white);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.about .container, .services .container, .contact .container {
+    padding: 40px;
+}
+
+/* Seção Sobre Mim */
+.about-flex-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+.about-content { flex: 2; min-width: 300px; }
+.about-content h3 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+.about-content h4 { font-size: 1.5rem; color: var(--dark-gray); margin-top: 0; margin-bottom: 1.5rem; }
+.about-image-wrapper { flex: 1; display: flex; justify-content: center; align-items: center; min-width: 250px; }
+.about-image-profile { width: 100%; max-width: 350px; height: auto; border-radius: 50%; box-shadow: 0 8px 16px rgba(0,0,0,0.2); object-fit: cover; }
+
+/* Seção de Estatísticas */
+.stats { text-align: center; padding: 40px 0; }
+.stats .container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+.stat-item { flex: 1; min-width: 150px; }
+.stat-number { font-size: 3rem; font-weight: bold; color: var(--primary-color); display: block; }
+.stat-text { font-size: 1.2rem; color: #555; margin-top: 0.5rem; }
+
+/* Seção de Serviços */
+.services h3, .contact h3 { text-align: center; margin-bottom: 3rem; font-size: 2rem; color: var(--primary-color); }
+.service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+.service-item { background-color: transparent; height: 350px; perspective: 1000px; cursor: pointer; }
+.service-item-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+.service-item:hover .service-item-inner { transform: rotateY(180deg); }
+.service-item-front, .service-item-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; box-sizing: border-box; }
+.service-item-back { transform: rotateY(180deg); color: var(--dark-gray); }
+.service-icon { font-size: 4rem !important; color: var(--primary-color); margin-bottom: 1rem; }
+.service-item-front h4 { color: var(--primary-color); font-size: 1.4rem; text-align: center; }
+.interaction-hint { position: absolute; bottom: 20px; right: 20px; display: flex; align-items: center; color: var(--primary-color); opacity: 0.7; animation: pulse 2.5s infinite; }
+.interaction-hint i { font-size: 1.2rem; margin-right: 8px; }
+.interaction-hint span { font-size: 0.8rem; font-weight: bold; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(1); opacity: 0.7; } }
+.service-item-back h5 { color: var(--primary-color); font-size: 1.3rem; margin-top: 0; margin-bottom: 1rem; border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.5rem; }
+.service-item-back ul { list-style: none; padding: 0; margin: 0; text-align: left; width: 100%; }
+.service-item-back li { font-size: 1rem; margin-bottom: 0.7rem; padding-left: 1.2rem; position: relative; }
+.service-item-back li::before { content: '✓'; color: var(--primary-color); font-weight: bold; position: absolute; left: 0; top: 0; }
+
+/* Seção de Contato */
+.contact-content { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.btn-whatsapp-section { display: inline-flex; align-items: center; justify-content: center; background: var(--whatsapp-green); color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-size: 1.2rem; font-weight: bold; margin-top: 2rem; transition: background 0.3s, transform 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); border: none; cursor: pointer; }
+.btn-whatsapp-section:hover { background: var(--whatsapp-hover); transform: translateY(-3px); }
+.btn-whatsapp-section i { font-size: 1.5rem; margin-right: 10px; }
+
+/* Footer */
+.footer { background: var(--primary-color); color: var(--white); text-align: center; padding: 2rem 0; }
+.footer-contact { margin-top: 1rem; display: flex; flex-direction: column; align-items: center; }
+.footer-contact p { margin: 0.2rem 0; }
+
+/* Animações */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
+.fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; left: 40px; background-color: var(--whatsapp-green); color: var(--white); border-radius: 50%; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px rgba(0,0,0,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s, transform 0.3s; cursor: pointer; border: none; }
+.whatsapp-float:hover { background-color: var(--whatsapp-hover); transform: scale(1.05); }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav { display: none; flex-direction: column; width: 100%; background-color: var(--primary-color); position: absolute; top: 60px; left: 0; padding: 1rem 0; }
+    .nav.active { display: flex; }
+    .nav ul { flex-direction: column; width: 100%; }
+    .nav li { text-align: center; margin: 0.5rem 0; }
+    .hamburger { display: block; }
+    .hero { padding: 100px 20px; }
+    .hero h2 { font-size: 2rem; }
+    .about-flex-container { flex-direction: column; text-align: center; }
+    .service-grid { grid-template-columns: 1fr; }
+    .whatsapp-float { width: 55px; height: 55px; bottom: 20px; left: 20px; }
+    .interaction-hint { bottom: 15px; right: 15px; }
+    .interaction-hint span { display: none; }
+}
