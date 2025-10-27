@@ -182,7 +182,7 @@ section {
 
 /* Seção de Serviços */
 .services h3, .contact h3 { text-align: center; margin-bottom: 3rem; font-size: 2rem; color: var(--primary-color); }
-.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px 30px; }
+.service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
 .service-item { background-color: transparent; height: 350px; perspective: 1000px; cursor: pointer; }
 .service-item-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
 .service-item:hover .service-item-inner { transform: rotateY(180deg); }
@@ -228,6 +228,7 @@ section {
     .hero { padding: 100px 20px; }
     .hero h2 { font-size: 2rem; }
     .about-flex-container { flex-direction: column; text-align: center; }
+    .service-grid { grid-template-columns: 1fr; }
     .whatsapp-float { width: 55px; height: 55px; bottom: 20px; left: 20px; }
     .interaction-hint { bottom: 15px; right: 15px; }
     .interaction-hint span { display: none; }
