@@ -1113,7 +1113,9 @@
     .cursor { animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
 
-    /* ===== RESPONSIVE ===== */
+    .hint-desktop { display: inline; }
+
+    /* ===== RESPONSIVE =====*/
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { gap: 60px; }
@@ -1141,6 +1143,47 @@
       .form-row { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; text-align: center; }
       .footer-oab { text-align: center; }
+      .hint-desktop { display: none; }
+
+      /* Serviços: sempre expandidos no mobile */
+      .service-card {
+        min-height: unset;
+        background: var(--white);
+        padding: 28px 24px;
+      }
+      .service-card::before { transform: scaleX(1); }
+      .service-num { color: rgba(184,149,90,0.3); margin-bottom: 16px; }
+      .service-icon-wrap {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--white);
+      }
+      .service-list {
+        opacity: 1;
+        transform: none;
+        margin-top: 16px;
+      }
+    }
+
+    /* Tablets touch (hover não confiável): expandir lista também */
+    @media (hover: none) {
+      .service-card {
+        min-height: unset;
+        background: var(--white);
+      }
+      .service-card::before { transform: scaleX(1); }
+      .service-num { color: rgba(184,149,90,0.3); }
+      .service-icon-wrap {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--white);
+      }
+      .service-list {
+        opacity: 1;
+        transform: none;
+        margin-top: 16px;
+      }
+      .hint-desktop { display: none; }
     }
 
     @media (max-width: 480px) {
@@ -1324,7 +1367,8 @@
             <h2 class="section-title">Áreas de<br>Atuação</h2>
           </div>
           <p class="services-head-right">
-            Atendimento personalizado em quatro áreas estratégicas do direito. Passe o cursor sobre cada área para ver os serviços.
+            Atendimento personalizado em quatro áreas estratégicas do direito.
+            <span class="hint-desktop">Passe o cursor sobre cada área para ver os serviços.</span>
           </p>
         </div>
 
